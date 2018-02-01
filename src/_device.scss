@@ -10,16 +10,11 @@
 }
 
 @function flexy-device-media($name) {
-  $map: flexy-device-get($name);
-  $temp: ();
-  @each $key, $value in $map {
-    $temp: append($temp, '(#{$key}: #{$value})');
-  }
-  @return flexy-join(flexy-reverse($temp), ' and ');
+  @return flexy-media-get(flexy-device-get($name));
 }
 
 @mixin flexy-device($name, $screen: 'only screen') {
-  @media #{$screen} and #{flexy-device-media($name)} {
+  @include flexy-media(flexy-device-media($name), $screen) {
     @content;
   }
 }

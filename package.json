@@ -1,7 +1,7 @@
 {
   "name": "flexy-device",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "jest": "^22.1.4",
     "node-sass": "^4.7.2",
@@ -13,6 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "flexy-functions": "^1.0.0"
+    "flexy-breakpoint": "^1.0.0",
+    "flexy-functions": "1.0.3"
   }
 }
