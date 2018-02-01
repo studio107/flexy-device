@@ -1,0 +1,25 @@
+@import "~flexy-functions/src/functions";
+@import "settings";
+
+@function flexy-device-has($name) {
+  @return map-has-key($flexy-device-list, $name);
+}
+
+@function flexy-device-get($name) {
+  @return map-get($flexy-device-list, $name);
+}
+
+@function flexy-device-media($name) {
+  $map: flexy-device-get($name);
+  $temp: ();
+  @each $key, $value in $map {
+    $temp: append($temp, '(#{$key}: #{$value})');
+  }
+  @return flexy-join(flexy-reverse($temp), ' and ');
+}
+
+@mixin flexy-device($name, $screen: 'only screen') {
+  @media #{$screen} and #{flexy-device-media($name)} {
+    @content;
+  }
+}

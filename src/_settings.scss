@@ -1,0 +1,4 @@
+@import "default_devices";
+
+$flexy-devices: () !default;
+$flexy-device-list: map-merge($flexy-default-devices, $flexy-devices);
